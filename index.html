@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Tools</title>
+    <link rel="stylesheet" href="note.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hacker Toolkit</h1>
+            <input type="text" id="searchBar" placeholder="Search tools..." oninput="filterTools()">
+        </header>
+        <main>
+            <div class="tool-grid">
+                <div class="tool-card" onclick="navigateToTool('nmap')">
+                    <h2>nmap</h2>
+                </div>
+                <div class="tool-card" onclick="navigateToTool('github')">
+                    <h2>GitHub</h2>
+                </div>
+                <div class="tool-card" onclick="navigateToTool('curl')">
+                    <h2>curl</h2>
+                </div>
+                <div class="tool-card" onclick="navigateToTool('linux')">
+                    <h2>Linux</h2>
+                </div>
+                <div class="tool-card" onclick="navigateToTool('gobuster')">
+                    <h2>gobuster</h2>
+                </div>
+                <!-- Add more tools here -->
+            </div>
+        </main>
+    </div>
+    <script src="note.js"></script>
+</body>
+</html>
