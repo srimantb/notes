@@ -4,7 +4,7 @@ body {
     padding: 20px;
     font-family: 'Courier New', Courier, monospace;
     background-color: #0f0f0f;
-    color: #00ff00;
+    color: #21af21;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -36,17 +36,17 @@ li {
 code {
     background-color: #1f1f1f;
     padding: 5px 10px;
-    border-radius: 5px;
-    color: #00ff00;
+    border-radius: 100px;
+    color: #21af21;
 }
 
 button {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 1rem;
-    border: 2px solid #00ff00;
+    border: 2px solid #21af21;
     background-color: transparent;
-    color: #00ff00;
+    color: #21af21;
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -54,5 +54,5 @@ button {
 
 button:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 10px #00ff00;
+    box-shadow: 0 0 10px #21af21;
 }
