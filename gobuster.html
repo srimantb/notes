@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nmap Commands</title>
+    <link rel="stylesheet" href="note.css">
+   
+</head>
+<body>
+    <h1>nmap Commands</h1>
+    <ul>
+        <li><code>nmap -sS [target]</code> <br><br>> Perform a stealth scan</li>
+        <li><code>nmap -O [target]</code> - Detect operating system</li>
+        <li><code>nmap -p- [target]</code> - Scan all 65535 ports</li>
+        <li><code>nmap -A [target]</code> - Perform an aggressive scan</li>
+        <li><code>nmap -T4 [target]</code> - Speed up the scan</li>
+        <li><code>nmap --script [script_name] [target]</code> - Run a specific script</li>
+        <h1>gobuster</h1>
+    </ul>
+    <button onclick="goBack()">Back</button>
+
+    <script>
+        // Navigate back to the main page
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
