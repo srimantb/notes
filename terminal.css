@@ -1,0 +1,14 @@
+
+.terminal {
+    background-color: #1e1e1e;
+    color: #070707;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+.terminal::before {
+    content: "$ ";
+    color: #50fa7b;
+    font-weight: bold;
+}

