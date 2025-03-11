@@ -6,10 +6,20 @@
     <title>Linux Tools</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="note.css">
+    <!-- Prism.js for syntax highlighting -->
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+
+
    
 </head>
 <body>
-    <h1>chisel</h1>
+
+
+    
+    <h1 data-text="Chisel">Chisel</h1>
+
     <ul>
         <li><code>$ chisel_x.xx.x_linux_amd64 server -p 9000 [ attacker machine]</code>  <br><br>
             > set up a reverse tunneling connection between an attacker's machine (server) and a victim's machine (client) <br><br></li>
@@ -18,12 +28,35 @@
         > R: Indicates reverse port forwarding. <br>
         > 9631: The port on the attacker's machine (server) to be forwarded. <br>
         > localhost:631: The victim’s local port (631) data will be forwarded to attacker & they can access it on their local machine http://IP:9631 
+        <!-- <h2>Running an Nmap Scan</h2>
+        <pre><code class="language-bash">
+        nmap -sS -A -T4 192.168.1.1
+        </code></pre>
+         -->
+       
+        <h4>Example: Python Script for Port Scanning</h4>
+        <pre><code class="language-python">
+        import socket
+        
+        def scan(target, port):
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.settimeout(1)
+            if s.connect_ex((target, port)) == 0:
+                print(f"Port {port} is open")
+            s.close()
+        
+        scan("192.168.1.1", 80)
+        </code></pre>
+        
         </li> 
     </ul>
-    
-    <h1>gobuster</h1>
-    <button onclick="goBack()">Back</button>
 
+    <button onclick="goBack()">Back</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    
     <script src="note.js"></script>
+    
 </body>
 </html>

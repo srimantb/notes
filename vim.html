@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vim</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="note.css">
+    <link rel="stylesheet" href="terminal.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <h1>Vim Commands</h1>
+    <ul>
+        <li><code>1. Basic Commands</code> <br><br> vim filename – Open a file in Vim. <br>:q – Quit Vim. <br>
+            :q! – Quit without saving. <br>:w – Save the file. <br>:wq or ZZ – Save and exit. <br>:e filename – Open a new file.</li>
+    </ul>
+    <ul>
+        <li><code>2. Navigation</code> <br><br>h – Move left. <br>
+            l – Move right.<br>
+            j – Move down.<br>
+            k – Move up.<br>
+            w – Move forward one word.<br>
+            b – Move backward one word.<br>
+            0 – Move to the beginning of the line.<br>
+            $ – Move to the end of the line.<br>
+            gg – Go to the beginning of the file.<br>
+            G – Go to the end of the file.<br>
+            :n – Go to line number n.</li>
+    </ul>
+    <ul>
+        <li><code>3. Inserting Text</code> <br><br>i – Insert before the cursor. <br>
+            I – Insert at the beginning of the line.<br>
+            a – Append after the cursor.<br>
+            A – Append at the end of the line.<br>
+            o – Open a new line below.<br>
+            O – Open a new line above.</li>
+    </ul>
+    <ul>
+        <li><code>4. Editing Text</code> <br><br>x – Delete the character under the cursor. <br>
+            dd – Delete the current line.<br>
+            dw – Delete a word.<br>
+            D – Delete everything to the end of the line.<br>
+            yy – Copy the current line.<br>
+            yw – Copy a word.<br>
+            p – Paste after the cursor.<br>
+            P – Paste before the cursor.<br>
+            u – Undo last change.<br>
+            Ctrl + r – Redo last undone change.<br>
+            . – Repeat the last command.</li>
+    </ul>
+    <ul>
+        <li><code>5. Searching and Replacing</code> <br><br>/text – Search for text. <br>
+
+            n – Repeat last search forward.<br>
+            
+            N – Repeat last search backward.<br>
+            
+            :%s/old/new/g – Replace all occurrences of old with new.<br>
+            
+            :%s/old/new/gc – Replace with confirmation.</li>
+    </ul>
+    <ul>
+        <li><code>6. Visual Mode (Selection)</code> <br><br>>v – Start character-wise selection.<br>
+
+            V – Start line-wise selection.<br>
+            
+            Ctrl + v – Start block selection.<br>
+            
+            y – Copy selected text.<br>
+            
+            d – Cut selected text.</li>
+    </ul>
+    <ul>
+        <li><code>7. Window and Tab Management</code> <br><br>:split – Split window horizontally. <br>
+
+            :vsplit – Split window vertically. <br>
+            
+            Ctrl + w + w – Switch between windows. <br>
+            
+            Ctrl + w + h/j/k/l – Move between splits. <br>
+            
+            :tabnew filename – Open a new tab. <br>
+            
+            gt – Go to the next tab. <br>
+            
+            gT – Go to the previous tab. <br>
+            
+            :q – Close the current window/tab.</li>
+    </ul>
+    <ul>
+        <li><code>nmap -sS [target]</code> <br><br>> Perform a stealth scan</li>
+    </ul>
+    <ul>
+        <li><code>nmap -sS [target]</code> <br><br>> Perform a stealth scan</li>
+    </ul>
+    <button onclick="goBack()">Back</button>
+
+    <script src="note.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>

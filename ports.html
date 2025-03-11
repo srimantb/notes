@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>curl Commands</title>
+    <title>Port Penetration</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="note.css">
 
@@ -14,23 +14,15 @@
    
 </head>
 <body>
-    <h1>curl Commands</h1>
+    <h1>DNS Enumeration</h1>
     <ul>
-        <li><code>$ curl https://example.com
-        </code> <br><br>> retrieve the HTML content of the specified URL <br><br></li>
+        <li>
+         <br># Port 53 is used for DNS (Domain Name System), which translates domain names (example.com) into IP addresses.
+         port-53, Simple DNS Plus, is a Windows-based DNS server software.<br><br>
+         <a style="color: green;" href="https://medium.com/@klockw3rk/back-to-basics-dns-enumeration-446017957aa3"> Learn more about it</a></li>
+        
     </ul>
-    <ul>
-        <li><code>$ curl -X GET https://api.example.com/resource
-        </code> <br><br>> send a GET request. <br><br></li>
-    </ul>
-    <ul>
-        <li><code>$ curl -X POST -d "key1=value1&key2=value2" https://api.example.com/resource
-        </code> <br><br>> send a POST request with data. <br><br></li>
-    </ul>
-    <ul>
-        <li><code>$ curl -F 'bigUploadFile=@rce.php' 'http://example.com/bigUpload.php?action=post-unsupported'
-        </code> <br><br>> -F flag specifies a form field (bigUploadFile) with the file content. <br><br></li>
-    </ul>
+   
 
     <button onclick="goBack()">Back</button>
 

@@ -17,6 +17,18 @@
 //     });
 // }
 
+
+
+function scrollToBottom() {
+  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+}
+
+// Call this function whenever new content is added
+document.addEventListener("DOMContentLoaded", () => {
+  scrollToBottom();
+});
+
+
 // Navigation logic################
 // Search bar filtering
 function filterTools() {
@@ -128,3 +140,5 @@ window.addEventListener("resize", () => {
   canvas.height = window.innerHeight;
   init();
 });
+
+
