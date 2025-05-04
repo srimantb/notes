@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nmap Commands</title>
+    <title>gobuster Commands</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="note.css">
    
 </head>
 <body>
-    <h1>nmap Commands</h1>
+    <h1>gobuster Commands</h1>
     <ul>
-        <li><code>nmap -sS [target]</code> <br><br>> Perform a stealth scan</li>
+        <li>    
+            <code>
+                gobuster dir -u http://10.10.10.10/ -w wordlistPAth -t 20 -x aspx
+            </code> 
+            <br><br>> <span class="glow">gobuster dir</span>	Use the directory scanning mode to find hidden directories or files. <br>
+                    > <span class="glow">-u http://10.10.10.93/</span>	Target URL to scan. <br>
+                    > <span class="glow">-w wordlistPAth</span> Path to the wordlist to use for brute-forcing. <br>
+                    > <span class="glow">-t 20</span> Number of threads (20 parallel requests – speeds up scan). <br>
+                    > <span class="glow">-x aspx</span> Try appending .aspx to each word in the list (looks for ASP.NET pages).
+
+        </li>
+
         <li><code>nmap -O [target]</code> - Detect operating system</li>
         <li><code>nmap -p- [target]</code> - Scan all 65535 ports</li>
         <li><code>nmap -A [target]</code> - Perform an aggressive scan</li>

