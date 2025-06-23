@@ -9,9 +9,9 @@
    
 </head>
 <body>
-    <h1></h1>
+    <h1>bloodhound</h1>
     <ul>
-        <li><code>$ bloodhound-python --dns-tcp-ns 10.10.11.108 d return.local -u svc-printer -p 'ledFg4301211' -c all > ldap_enum
+        <li><code>$ bloodhound-python --dns-tcp -ns 10.10.11.108 -d return.local -u svc-printer -p 'ledFg4301211' -c all > ldap_enum
         </code><br><br>
         > BloodHound used for Active Directory enumeration and attack simulation <br>
         > <span class="glow">--dns-tcp-ns 10.10.11.108</span> Tells the tool to use TCP-based DNS resolution via the nameserver at IP 10.10.11.108 <br>
@@ -31,6 +31,7 @@
         > Tries to authenticate to the WinRM service (used for remote PowerShell access on Windows). <br>
         > If the credentials are valid and WinRM is enabled, it will confirm access. <br>
         </li> 
+       
     </ul>
 <!-- Evil-WinRM -->
     <h1>Evil-WinRM</h1>
@@ -67,11 +68,38 @@
         > <span class="glow">-f aspx</span> Format of the payload – here, it's an ASPX web shell. <br>
         > <span class="glow"> -o payload.aspx</span>Output file name – saves the payload as payload.aspx</li>
     </ul>
-<!--  -->
+<!-- NXC  -->
     <h1>nxc</h1>
-    <ul>
+    <ul><li><code>$ nxc smb 10.10.11.35 --shares -u 'emily.oscars' -p 'Q!3@Lp#M6b*7t*Vt'
+    </code> <br><br>
+        >  enumerate SMB shares on the target machine (10.10.11.35) using the credentials of the user emily.oscars</li>
         <li><code>$ nxc smb 10.10.11.3 -u user.txt -p pass.txt --continue-on-success</code><br><br>
         > a brute-forcing tool for SMB logins</li>
+        <li><code>nxc smb 10.10.11.35 -u '.' -p '' --rid-brute
+        </code><br><br>
+        > RID (Relative Identifier) brute-forcing is a technique to enumerate valid user accounts in Active Directory or on a standalone Windows machine without valid credentials, by guessing predictable RIDs like: <ul><li>500 → Administrator</li> <li>501 → Guest</li> <li>1000+ → Normal domain or local users</li></ul>
+        > Step 1: Run this to find usernames <br>
+        > Step 2: Use the usernames with tools like crackmapexec, kerbrute, or evil-winrm
+        </li>
+        <li><code>$ nxc smb 10.10.11.35 -u 'michael.wrightson' -p 'Cicada$M6Corpb*@Lp#nZp!8' --users
+        </code> <br><br>
+        > This command tries to authenticate to the SMB service running on 10.10.11.35 using the given credentials, 
+        and then enumerates all user accounts it can see via the --users option. <br>
+        > The tool tries to authenticate with the given credentials and then:
+        <ul> <li>Connects to the SMB service (port 445).</li>
+            <li>Tries to access the SAMR (Security Account Manager Remote) or LSARPC named pipes. 
+                <div class="note-box">
+                    <div class="note-line"></div>
+                    <div class="explanation-box">
+                        These services are used by Windows for user management.
+                    </div>
+                  </div>
+            </li>
+            <li>If access is allowed, it queries for user account information from the domain or local machine.</li>
+            </ul></li>
+        <li><code>nxc winrm 10.10.11.35 -u 'emily.oscars' -p 'Q!3@Lp#M6b*7t*Vt'
+        </code> <br> <br>
+        > tries to connect to the Windows machine at IP 10.10.11.35 using the WinRM protocol (Windows Remote Management).</li>
     </ul>
 <!-- psexec -->
     <h1>psexec.py</h1>
